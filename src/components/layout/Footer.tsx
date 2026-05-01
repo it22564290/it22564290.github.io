@@ -6,7 +6,7 @@ export const Footer: React.FC = () => {
   return (
     <footer className="border-t border-border mt-auto py-12 bg-card/30 backdrop-blur-sm">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-5 gap-8">
           <div className="col-span-1 md:col-span-2">
             <span className="font-extrabold text-xl tracking-tighter flex items-center gap-2">
               <span className="text-primary bg-primary/10 border border-primary/20 px-2.5 py-0.5 rounded-xl font-mono">SD</span>
@@ -23,6 +23,32 @@ export const Footer: React.FC = () => {
               <li><Link to="/" className="text-muted-foreground hover:text-primary transition-colors">Home</Link></li>
               <li><Link to="/about" className="text-muted-foreground hover:text-primary transition-colors">About</Link></li>
               <li><Link to="/login" className="text-muted-foreground hover:text-primary transition-colors">Sign in</Link></li>
+            </ul>
+          </div>
+
+          <div>
+            <h3 className="font-bold text-foreground tracking-wider uppercase text-xs mb-4 font-mono">Projects</h3>
+            <ul className="space-y-3 font-mono text-xs">
+              <li>
+                <a href="https://github.com/SachinthaDaham/Library-Manager-Microservices" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors">
+                  Library OS
+                </a>
+              </li>
+              <li>
+                <a href="https://github.com/SachinthaDaham/cocosmartapp" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors">
+                  CocoSmart
+                </a>
+              </li>
+              <li>
+                <a href="https://github.com/SachinthaDaham/prana" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors">
+                  Prana Yoga
+                </a>
+              </li>
+              <li>
+                <a href="https://github.com/SachinthaDaham/PETHUB" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors">
+                  PetHub
+                </a>
+              </li>
             </ul>
           </div>
 
@@ -47,6 +73,16 @@ export const Footer: React.FC = () => {
               <li>
                 <a href="https://wa.me/94764220899" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors inline-flex items-center gap-2">
                   <Link2 className="w-3.5 h-3.5" /> WhatsApp
+                </a>
+              </li>
+              <li>
+                <a href="https://www.instagram.com/daham_sachintha" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors inline-flex items-center gap-2">
+                  <Link2 className="w-3.5 h-3.5" /> Instagram
+                </a>
+              </li>
+              <li>
+                <a href="https://www.facebook.com/dahams.sachintha/" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors inline-flex items-center gap-2">
+                  <Link2 className="w-3.5 h-3.5" /> Facebook
                 </a>
               </li>
               <li>
