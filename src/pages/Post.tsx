@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { Bookmark, Share2, MessageSquare, Heart, Clock, ArrowLeft, Cpu } from 'lucide-react';
 import { format } from 'date-fns';
+import { Helmet } from 'react-helmet-async';
 import { POSTS } from '../data/posts';
 
 export const Post: React.FC = () => {
@@ -37,6 +38,15 @@ export const Post: React.FC = () => {
 
   return (
     <div className="relative">
+      <Helmet>
+        <title>{post.title} | Sachintha Daham</title>
+        <meta name="description" content={post.excerpt} />
+        <meta property="og:title" content={post.title} />
+        <meta property="og:description" content={post.excerpt} />
+        <meta property="og:image" content={post.image} />
+        <meta property="og:type" content="article" />
+      </Helmet>
+
       {/* Scroll progress bar */}
       <div className="fixed top-0 left-0 w-full h-1 z-50 bg-muted/30">
         <div className="h-full bg-gradient-to-r from-primary to-accent transition-all duration-75" style={{ width: `${scrollProgress}%` }} />

@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import { Bookmark, Clock, ArrowRight, ShieldCheck, Cpu, Search, Terminal as TerminalIcon, X } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { format } from 'date-fns';
+import { Helmet } from 'react-helmet-async';
 import { POSTS, CATEGORIES } from '../data/posts';
 
 export const Home: React.FC = () => {
@@ -35,6 +36,13 @@ export const Home: React.FC = () => {
 
   return (
     <div className="space-y-16">
+      <Helmet>
+        <title>Sachintha Daham | Cloud & DevOps Engineering</title>
+        <meta name="description" content="Hardcore DevOps & Infrastructure Engineering insights. Moving legacy monoliths to highly available, distributed cloud environments." />
+        <meta property="og:title" content="Sachintha Daham | Cloud & DevOps Engineering" />
+        <meta property="og:description" content="Hardcore DevOps & Infrastructure Engineering insights." />
+      </Helmet>
+
       {/* Hero Header banner with dynamic pulse effects */}
       <section className="relative rounded-3xl overflow-hidden min-h-[480px] border border-border flex items-end shadow-2xl group transition-all duration-500 hover:shadow-primary/5">
         <div className="absolute inset-0">
