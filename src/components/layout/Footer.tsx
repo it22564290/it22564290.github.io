@@ -1,4 +1,4 @@
-﻿import React from "react";
+import React from "react";
 import { Link } from "react-router-dom";
 import { GitBranch, Link2, Mail } from "lucide-react";
 
@@ -30,18 +30,28 @@ export const Footer: React.FC = () => {
             <h3 className="font-bold text-foreground tracking-wider uppercase text-xs mb-4 font-mono">Connect</h3>
             <ul className="space-y-3 font-mono text-xs">
               <li>
-                <a href="https://github.com/it22564290" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors inline-flex items-center gap-2">
+                <a href="https://github.com/SachinthaDaham" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors inline-flex items-center gap-2">
                   <GitBranch className="w-3.5 h-3.5" /> GitHub
                 </a>
               </li>
               <li>
-                <a href="https://www.Link2.com/" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors inline-flex items-center gap-2">
-                  <Link2 className="w-3.5 h-3.5" /> Link2
+                <a href="https://www.linkedin.com/in/sachinthadaham/" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors inline-flex items-center gap-2">
+                  <Link2 className="w-3.5 h-3.5" /> LinkedIn
                 </a>
               </li>
               <li>
-                <a href="mailto:dahamsachintha66@gmail.com" className="text-muted-foreground hover:text-primary transition-colors inline-flex items-center gap-2">
+                <a href="mailto:Dahamsachintha66@gmail.com" className="text-muted-foreground hover:text-primary transition-colors inline-flex items-center gap-2">
                   <Mail className="w-3.5 h-3.5" /> Email
+                </a>
+              </li>
+              <li>
+                <a href="https://wa.me/94764220899" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors inline-flex items-center gap-2">
+                  <Link2 className="w-3.5 h-3.5" /> WhatsApp
+                </a>
+              </li>
+              <li>
+                <a href="https://sachinthadaham.me" target="_blank" rel="noopener noreferrer" className="text-primary font-bold hover:text-primary/80 transition-colors inline-flex items-center gap-2 mt-2">
+                  <Link2 className="w-3.5 h-3.5" /> Main Portfolio
                 </a>
               </li>
             </ul>

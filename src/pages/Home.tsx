@@ -1,6 +1,6 @@
-﻿import React, { useState } from "react";
+import React, { useState } from "react";
 import { motion } from "framer-motion";
-import { Bookmark, Clock, ArrowRight, ShieldCheck, Cpu, Search, Terminal as TerminalIcon, X } from "lucide-react";
+import { Bookmark, Clock, ArrowRight, ShieldCheck, Search, Terminal as TerminalIcon, X, GitBranch } from "lucide-react";
 import { Link } from "react-router-dom";
 import { format } from "date-fns";
 import { Helmet } from "react-helmet-async";
@@ -25,7 +25,6 @@ export const Home: React.FC = () => {
   const [searchQuery, setSearchQuery] = useState("");
 
   const sortedPosts = [...POSTS].sort((a, b) => b.date.getTime() - a.date.getTime());
-  const featuredPost = sortedPosts[0];
 
   const filteredPosts = sortedPosts.filter(post => {
     const matchesCategory = selectedCategory === "All" || post.category === selectedCategory;
@@ -47,39 +46,54 @@ export const Home: React.FC = () => {
       </Helmet>
 
       {/* Hero */}
-      <section className="relative rounded-3xl overflow-hidden min-h-[480px] border border-border flex items-end shadow-2xl group transition-all duration-500 hover:shadow-primary/5">
+      <section className="relative rounded-3xl overflow-hidden min-h-[480px] border border-border flex items-center shadow-2xl group transition-all duration-500 hover:shadow-primary/5 bg-black/40">
         <div className="absolute inset-0">
           <img
-            src={featuredPost.image}
-            alt={featuredPost.title}
-            className="w-full h-full object-cover group-hover:scale-105 transition-all duration-700 select-none"
+            src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=2000&q=80"
+            alt="Server Rack Background"
+            className="w-full h-full object-cover group-hover:scale-105 transition-all duration-700 opacity-40 select-none"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-background via-background/70 to-background/20" />
+          <div className="absolute inset-0 bg-gradient-to-r from-background via-background/80 to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent" />
         </div>
 
-        <div className="relative p-6 sm:p-12 max-w-4xl">
-          <span className={`inline-flex items-center gap-1.5 px-4 py-1 rounded-full text-xs font-mono font-bold tracking-wider uppercase mb-4 backdrop-blur-md ${getCategoryClass(featuredPost.category)}`}>
-            <Cpu className="w-3.5 h-3.5" /> Latest post
-          </span>
-          <h1 className="text-3xl md:text-5xl font-black tracking-tight mb-4 leading-tight">
-            {featuredPost.title}
-          </h1>
-          <p className="text-lg text-muted-foreground mb-6 max-w-2xl line-clamp-2">
-            {featuredPost.excerpt}
-          </p>
-          <div className="flex flex-wrap items-center gap-6">
-            <Link to={`/post/${featuredPost.id}`} className="flex items-center gap-2 bg-primary text-primary-foreground font-extrabold px-6 py-3.5 rounded-full hover:bg-primary/90 hover:scale-105 active:scale-95 transition-all shadow-lg shadow-primary/20">
-              Read the post <ArrowRight className="w-4 h-4" />
-            </Link>
-            <div className="flex items-center gap-3">
-              <img src={featuredPost.author.avatar} alt={featuredPost.author.name} className="w-11 h-11 rounded-full bg-muted border border-border" />
-              <div>
-                <div className="text-sm font-bold">{featuredPost.author.name}</div>
-                <div className="text-xs text-muted-foreground font-mono">{featuredPost.readTime} - {format(featuredPost.date, "MMM d, yyyy")}</div>
-              </div>
+        <div className="relative p-8 md:p-16 max-w-3xl z-10">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+          >
+            <span className="inline-flex items-center gap-1.5 px-4 py-1.5 rounded-full text-xs font-mono font-bold tracking-wider uppercase mb-6 backdrop-blur-md bg-primary/10 text-primary border border-primary/20">
+              <TerminalIcon className="w-4 h-4" /> root@sachintha-daham:~#
+            </span>
+            <h1 className="text-4xl md:text-6xl font-black tracking-tight mb-6 leading-tight text-foreground">
+              Engineering the <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-cyan-400">Cloud</span>
+            </h1>
+            <p className="text-lg text-muted-foreground mb-8 max-w-2xl font-mono leading-relaxed">
+              Field notes on cloud architecture, container orchestration, secure Linux administration, and robust edge networking. Welcome to my infrastructure log.
+            </p>
+            <div className="flex flex-wrap items-center gap-4">
+              <a href="https://sachinthadaham.me" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 bg-primary text-primary-foreground font-extrabold px-8 py-4 rounded-full hover:bg-primary/90 hover:scale-105 active:scale-95 transition-all shadow-lg shadow-primary/20">
+                View Main Portfolio <ArrowRight className="w-4 h-4" />
+              </a>
+              <a href="https://github.com/SachinthaDaham" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 bg-card/50 text-foreground border border-border font-bold px-8 py-4 rounded-full hover:bg-muted hover:scale-105 active:scale-95 transition-all backdrop-blur-sm">
+                <GitBranch className="w-4 h-4" /> GitHub
+              </a>
             </div>
-          </div>
+          </motion.div>
         </div>
+        
+        {/* Floating elements for visual flair */}
+        <motion.div 
+          animate={{ y: [-10, 10, -10] }}
+          transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+          className="absolute hidden lg:block right-16 top-1/4 w-32 h-32 bg-primary/10 rounded-full blur-[40px] pointer-events-none"
+        />
+        <motion.div 
+          animate={{ y: [10, -10, 10] }}
+          transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
+          className="absolute hidden lg:block right-48 bottom-1/4 w-40 h-40 bg-cyan-500/10 rounded-full blur-[50px] pointer-events-none"
+        />
       </section>
 
       {/* Search + categories */}
