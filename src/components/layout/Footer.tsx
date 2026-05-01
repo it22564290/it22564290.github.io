@@ -1,4 +1,6 @@
-import React from 'react';
+﻿import React from "react";
+import { Link } from "react-router-dom";
+import { GitBranch, Link2, Mail } from "lucide-react";
 
 export const Footer: React.FC = () => {
   return (
@@ -11,31 +13,47 @@ export const Footer: React.FC = () => {
               <span>Sachintha Daham Blog</span>
             </span>
             <p className="mt-4 text-sm text-muted-foreground font-mono max-w-sm leading-relaxed">
-              Hardcore DevOps & Infrastructure Engineering insights. Moving legacy monoliths to highly available, distributed cloud environments.
+              Field notes on cloud architecture, containers, CI/CD, Linux, and observability. Written from the trenches, not the marketing department.
             </p>
           </div>
+
           <div>
-            <h3 className="font-bold text-foreground tracking-wider uppercase text-xs mb-4 font-mono">Index</h3>
+            <h3 className="font-bold text-foreground tracking-wider uppercase text-xs mb-4 font-mono">Site</h3>
             <ul className="space-y-3 font-mono text-xs">
-              <li><a href="/" className="text-muted-foreground hover:text-primary transition-colors">~/home</a></li>
-              <li><a href="/write" className="text-muted-foreground hover:text-primary transition-colors">~/write</a></li>
-              <li><a href="/login" className="text-muted-foreground hover:text-primary transition-colors">~/login</a></li>
+              <li><Link to="/" className="text-muted-foreground hover:text-primary transition-colors">Home</Link></li>
+              <li><Link to="/about" className="text-muted-foreground hover:text-primary transition-colors">About</Link></li>
+              <li><Link to="/login" className="text-muted-foreground hover:text-primary transition-colors">Sign in</Link></li>
             </ul>
           </div>
+
           <div>
-            <h3 className="font-bold text-foreground tracking-wider uppercase text-xs mb-4 font-mono">Socials</h3>
+            <h3 className="font-bold text-foreground tracking-wider uppercase text-xs mb-4 font-mono">Connect</h3>
             <ul className="space-y-3 font-mono text-xs">
-              <li><a href="https://github.com/it22564290" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors">GitHub</a></li>
-              <li><a href="#" className="text-muted-foreground hover:text-primary transition-colors">LinkedIn</a></li>
+              <li>
+                <a href="https://github.com/it22564290" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors inline-flex items-center gap-2">
+                  <GitBranch className="w-3.5 h-3.5" /> GitHub
+                </a>
+              </li>
+              <li>
+                <a href="https://www.Link2.com/" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors inline-flex items-center gap-2">
+                  <Link2 className="w-3.5 h-3.5" /> Link2
+                </a>
+              </li>
+              <li>
+                <a href="mailto:dahamsachintha66@gmail.com" className="text-muted-foreground hover:text-primary transition-colors inline-flex items-center gap-2">
+                  <Mail className="w-3.5 h-3.5" /> Email
+                </a>
+              </li>
             </ul>
           </div>
         </div>
+
         <div className="mt-12 pt-8 border-t border-border flex flex-col md:flex-row justify-between items-center gap-4">
           <p className="text-xs text-muted-foreground font-mono">
-            © {new Date().getFullYear()} Sachintha Daham. All deployments verified. Zero downtime.
+            (c) {new Date().getFullYear()} Sachintha Daham. Built with care, deployed with caution.
           </p>
           <div className="flex items-center gap-4 text-xs font-mono text-muted-foreground">
-            <span>Powered by React + Vite + TailwindCSS</span>
+            <span>React + Vite + TailwindCSS</span>
           </div>
         </div>
       </div>
